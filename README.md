@@ -1,2 +1,7 @@
 # Personalized_Movie_Recommendation_Sytem_with_GNN
-This repo will implement a personalized movie recommendation sytem with Gnn. A graph-based method of embedding relationship between users and movies
+
+# Installation
+
+1. Download MovieLens1M dataset from original dataset link [here](https://grouplens.org/datasets/movielens/1m/) into **ml-1m** folder in your local.
+2. Install dependencies using: ```pip install -r requirements.txt```
+3. Set up resources by runing setup file: ```python run/setup.py```

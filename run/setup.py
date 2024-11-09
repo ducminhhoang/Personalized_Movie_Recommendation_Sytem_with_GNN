@@ -11,6 +11,8 @@ import torch_geometric.transforms as T
 from ultils.preprocessing import process_movie, process_user
 from ultils.graph import save_graph
 
+if not os.path.exists('resources'):
+    os.makedirs('resources')
 
 # Load datasets
 users_df = pd.read_csv('ml-1m/users.dat', sep='::', header=None, engine='python',
