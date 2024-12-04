@@ -52,6 +52,15 @@ class Model(nn.Module):
         return pred
 
     def recommend(self, user_id, data) -> Tensor:
+        user_embeddings, movie_embeddings = self.get_embeddings(data)
+
+        user_embedding = user_embeddings[user_id]
+
+        scores = (user_embedding * movie_embeddings).sum(dim=-1)
+
+        return scores
+    
+    def get_embeddings(self, data):
         x_dict = {
           "user": self.user_lin(data["user"].x) + self.user_emb(data["user"].node_id),
           "movie": self.movie_lin(data["movie"].x) + self.movie_emb(data["movie"].node_id),
@@ -60,10 +69,4 @@ class Model(nn.Module):
 
         user_embeddings = x_dict["user"]
         movie_embeddings = x_dict["movie"]
-
-        user_embedding = user_embeddings[user_id]
-
-        scores = (user_embedding * movie_embeddings).sum(dim=-1)
-
-        return scores
-    
+        return user_embeddings, movie_embeddings

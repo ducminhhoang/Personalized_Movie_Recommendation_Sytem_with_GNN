@@ -29,4 +29,3 @@ def add_node_to_graph(graph, feature_node, edges=None):
         edge_weight 
 
         graph['user', 'rates', 'movie'].edge_index = edge_index
-    

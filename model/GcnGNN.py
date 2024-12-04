@@ -29,7 +29,6 @@ class GNNRecommendationModel(nn.Module):
 
         # GCN cho người dùng
         user_out = self.gcn_user(user_x, edge_index, edge_attr)
-        print("ha")
         # GCN cho phim
         movie_out = self.gcn_movie(movie_x, edge_index, edge_attr)
         print(edge_attr)

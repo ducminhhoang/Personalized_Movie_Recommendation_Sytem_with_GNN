@@ -1,6 +1,5 @@
 import torch
 from ultils.graph import load_from_file
-from torch_geometric.data import HeteroData
 from model.SageGNN import Model
 
 
